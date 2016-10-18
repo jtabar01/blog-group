@@ -6,12 +6,6 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 private
-  #def initialize(user, record)
-  #  raise Pundit::NotAuthorizedError, "must be logged in" unless user
-  #  @user = user
-  #  @record = record
-  #end
-
   def current_user
     User.find(session[:current_user_id])
   end
